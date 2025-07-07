@@ -1,12 +1,12 @@
-import Quotes from './components/Quotes'
+import { useEffect, useRef, useState } from 'react'
+import MultiStepForm from './components/multistepform/MultiStepForm'
 
 export default function App() {
   
-
   return (
     <>
-      <main className="container">
-        <Quotes/>
+      <main className="">
+       <MultiStepForm/>
       </main>
     </>
   )
