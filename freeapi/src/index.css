@@ -1,0 +1,77 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container{
+  background: #f1f1f1;
+  padding: 40px 0;
+}
+.container .quote-header{
+  text-align: center;
+  font-family: sans-serif;
+}
+.quote-container{
+  display: flex;
+  flex-wrap: wrap;
+  /* flex-direction: row; */
+  justify-content: center;
+  margin-top: 40px;
+  gap: 10px;
+}
+.quote-card{
+  border: 1px solid;
+  width: 30%;
+  height: 150px;
+  border-radius: 5px;
+  padding: 20px;
+  background: #3b494b;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.quote-card .quote-content {
+  text-align: center;
+  font-size: 1.2rem;
+  border-bottom: 1px solid;
+  padding-bottom: 10px;
+}
+
+/* get randome quotes */
+
+.random-quote-header{
+  text-align: center;
+  font-family: sans-serif;
+  margin: 40px 10px;
+}
+
+.random-btn{
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 4px 10px;
+  font-size: 1rem;
+  background: #77e60f;
+  cursor: pointer;
+}
+
+.random-quote{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* search quotes  */
+.search-quote{
+  margin-top: 10px;
+  font-size: 1rem;
+  padding: 6px 20px;
+  width: 20%;
+  margin-left: 40%;
+}
