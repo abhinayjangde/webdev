@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S3 Testing</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <input type="text" name="content" id="content">
+        <img id="imagePreview" width="200" />
+        <input type="file" accept="image/**" id="file">
+
+        <button id="postBtn">posts</button>
+    </div>
+
+    <script>
+
+        const content = document.getElementById("content")
+        const file = document.getElementById("file")
+        const imagePreview = document.getElementById("imagePreview")
+        const postBtn = document.getElementById("postBtn")
+
+        let publicURL;
+
+        file.addEventListener("change", async (e) => {
+            const imageFile = e.target.files[0];
+            const res = await fetch(
+                `http://localhost:4000/api/presigned-url?imageName=${imageFile.name}&imageType=${imageFile.type}`
+            )
+
+            const data = await res.json()
+
+
+            // upload image
+            const resupload = await fetch(data.presignedURL, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": imageFile.type
+                },
+                body: imageFile
+            })
+
+
+            publicURL = data.presignedURL.split("?")[0]
+
+            imagePreview.src = publicURL;
+
+
+        })
+        postBtn.addEventListener("click", async () => {
+            const contentText = content.value;
+            await fetch("http://localhost:4000/api/create-post", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    content: contentText,
+                    imageURL: publicURL
+                })
+            })
+        })
+
+
+    </script>
+</body>
+
+</html>

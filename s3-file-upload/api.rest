@@ -1,0 +1,17 @@
+
+### Home
+http://localhost:4000
+
+### Get Presigned URL
+http://localhost:4000/api/presigned-url?imageName=mynewimage.jpg&imageType=image/jpg
+
+
+### Crreate a Post
+POST http://localhost:4000/api/create-post
+Content-Type: application/json
+Accept: application/json
+
+{
+    "content":"this is content 1",
+    "title":"this is title 1"
+}
