@@ -1,0 +1,16 @@
+
+services:
+  mongod_db:
+    image: monogo:latest
+    container_name: mongod_db
+    ports:
+      - "27017:27017"
+    
+    environment:
+      - MONGO_INIT_ROOT_USERNAME=root
+      - MONGO_INIT_ROOT_PASSWORD=example
+    volumes:
+      - mongod_data:/data/db
+volumes:
+  mongod_data:
+  

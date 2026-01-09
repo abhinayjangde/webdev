@@ -1,0 +1,7 @@
+@BASEURL=http://localhost:5000
+
+### home
+GET http://{{BASEURL}}
+
+### users
+POST http://{{BASEURL}}/api/auth/register
