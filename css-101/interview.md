@@ -10,3 +10,5 @@
 10. Create a simple counter app (+ / −).
 11. Create a TODO list (add items only).
 12. Change background color randomly on button click.
+13. Create a modal popup using HTML, CSS, and JavaScript.
+14. Validate a form input (e.g., email format) using JavaScript.
