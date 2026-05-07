@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 10</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            background-color: black;
+            color: white;
+        }
+
+        .container {
+            width: 250px;
+            background-color: rgb(42, 73, 63);
+            border-radius: 5px;
+            padding: 10px 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .container h1 {
+            font-size: 35px;
+            text-align: center;
+        }
+
+        .dice {
+            font-size: 100px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .container button {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 26px;
+            border-radius: 5px;
+            border: none;
+            background-color: rgb(73, 221, 73);
+            padding: 2px 4px;
+            cursor: pointer;
+        }
+
+        .container p {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Dice Roll Simulator</h1>
+        <div class="dice" id="dice">🎲</div>
+        <button id="rollButton">Roll Dice</button>
+        <p id="resultMessage">Roll the dice to see the result!</p>
+
+    </div>
+    <script>
+        const dice = document.getElementById("dice")
+        const rollButton = document.getElementById("rollButton")
+        const resultMessage = document.getElementById("resultMessage")
+
+        rollButton.addEventListener("click", handleRoll)
+
+        const diceFaces = ["\u2680", "\u2681", "\u2682", "\u2683", "\u2684", "\u2685"]
+
+        function handleRoll(){
+            const randomIndex = Math.floor((Math.random() * 5) + 1)
+
+            resultMessage.textContent = `You rolled ${randomIndex+1}`
+            dice.textContent = diceFaces[randomIndex]
+        }
+
+    </script>
+</body>
+
+</html>

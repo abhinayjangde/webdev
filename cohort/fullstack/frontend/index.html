@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Stack</title>
+</head>
+<body>
+    <div class="fetched-data">
+
+    </div>
+    <script>
+        async function fetchData(){
+            let res = await fetch("http://localhost:3000/abhi")
+            let data = await res.json()
+            console.log(data)
+            const p = document.createElement("p")
+            p.textContent = data.msg;
+            const container = document.querySelector(".fetched-data")
+            container.append(p)
+        }
+        fetchData()
+    </script>
+</body>
+</html>

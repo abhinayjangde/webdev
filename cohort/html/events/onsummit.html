@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>onsubmit event</title>
+</head>
+<body>
+    <form action=".././01-abhi.html" onsubmit="return myFunction()">
+        Enter name: <input id="name" type="text" name="name">
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        function myFunction() {
+            let name = document.getElementById("name").value
+            if(name === ""){
+                alert("Enater yor name:")
+                return false
+            }
+            else{
+                alert(name)
+                true
+            }
+            alert("The form was submitted", name);
+            
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      body{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      .main-container{
+        display: flex;
+        flex-direction: column;
+      }
+      .navbar{
+        display: flex;
+        /* align-items: end; */
+        justify-content: end;
+      }
+
+      .hero-container{
+        display: flex;
+        flex-direction: row;
+      }
+      .first{
+        border: 2px solid rebeccapurple;
+      }
+      .first > h6 {
+        font-size: 20px;
+      }
+      .second{
+        border: 2px solid goldenrod;
+      }
+      .btn{
+        background: #496bda;
+        color: white;
+        padding: 8px 18px;
+        border: none;
+        border-radius: 7px;
+        font-size: 17px;
+        font-weight: 500;
+      }
+      input{
+        font-size: 16px;
+        padding: 8px 18px;
+        border-radius: 4px;
+        border: 1px solid rgb(212, 212, 212);
+      }
+    </style>
+</head>
+<body>
+   <main class="main-container" >
+    <div class="navbar">
+      <button class="btn" >Switch Theme</button>
+    </div>
+   
+    <div class="hero-container">
+      <div class="first">
+        <h1>Build Better Products</h1>
+        <h6>Introducing a new way of your brand to reach the creative community.</h6>
+       <form action="/">
+        <input type="email" id="email" name="email" placeholder="Enter work email" required >
+        <button class="btn">Request Demo</button>
+       </form>
+      </div>
+      <div class="second">
+        <img src="./hero.avif" alt="hero-image">
+      </div>
+    </div>
+   </main>
+</body>
+</html>

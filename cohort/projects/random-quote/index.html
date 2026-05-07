@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises with Random Quotes</title>
+</head>
+
+<body>
+    <button onclick="getQuote()">Generate Quotes</button>
+    <div id="quote"></div>
+
+    <script>
+        function getQuote() {
+
+            fetch("https://api.freeapi.app/api/v1/public/quotes/quote/random")
+                .then(response => response.json())
+                .then((data) => {
+                    const quote = document.getElementById("quote")
+                    quote.textContent = data.data.content
+                })
+                .catch(e => console.log("Error while fetching quote"))
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            max-width: 500px;
+            margin: 20px auto;
+            gap: 10px;
+            
+        }
+       
+    </style>
+</head>
+<body>
+    <form onsubmit="return data()" action="./action.html">
+        Email: <input id="email" type="text">
+        Contact: <input id="contact" type="text">
+        Password: <input id="password" type="password">
+        Confirm Password <input id="confirmPassword" type="password">
+        <button type="submit" value="Submit Data" >Submit</button>
+    </form>
+
+    <script>
+
+        function data(){
+
+            let email = document.getElementById("email").value
+            let contact = document.getElementById("contact").value
+            let password = document.getElementById("password").value
+            let confirmPassword = document.getElementById("confirmPassword").value
+            
+            if(
+                email === "" ||
+                contact === "" ||
+                password === "" ||
+                confirmPassword === ""
+            ){
+                alert("Please fill all fields")
+                return false
+            }
+            else if(contact.length<10 || contact.length>10){
+                alert("Number should be of 10 Digits! Please enter valid number.")
+                return false
+            }
+            else if(isNaN(contact)){
+                alert("Only numbers are allowed")
+                return false
+            }
+            else if(password !== confirmPassword){
+                alert("Please enter same password")
+                return false
+            }
+            else{
+                true
+            }
+        }
+    </script>
+</body>
+</html>

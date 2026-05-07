@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            justify-items: center;
+        }
+
+        .btn {
+            font-size: 30px;
+            height: fit-content;
+        }
+
+        #container {
+            display: flex;
+            height: fit-content;
+            align-items: center;
+            column-gap: 12px;
+            margin: 20px 0px;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <div id="container">
+        <button class="btn" id="prev">prev</button>
+        <div id="imageContainer">
+            <img id="currentImage" src="https://cdn.pixabay.com/photo/2017/11/02/09/16/christmas-2910468_640.jpg"
+                alt="fdsaf">
+        </div>
+        <button class="btn" id="next">next</button>
+
+    </div>
+    <script>
+        const images = [
+            "https://cdn.pixabay.com/photo/2017/11/02/09/16/christmas-2910468_640.jpg",
+            "https://cdn.pixabay.com/photo/2023/05/14/19/32/horse-7993644_640.jpg",
+            "https://cdn.pixabay.com/photo/2024/10/06/11/54/cows-9099843_640.jpg",
+            "https://cdn.pixabay.com/photo/2024/11/03/12/57/lion-tamarin-9171365_640.jpg",
+            "https://cdn.pixabay.com/photo/2023/05/11/19/57/grey-heron-7987149_960_720.jpg"
+        ]
+
+        const imageContainer = document.getElementById("imageContainer")
+        const next = document.getElementById("next")
+        const prev = document.getElementById("prev")
+
+
+        let currentIndex = 0;
+
+        const handleNextImage = () => {
+
+            currentIndex = currentIndex + 1;
+            if (currentIndex >= images.length) {
+                currentIndex = 0
+            }
+
+            const currentImage = document.getElementById("currentImage")
+            currentImage.remove()
+
+            const img = document.createElement("img")
+            img.id = "currentImage"
+            img.src = images[currentIndex]
+            img.alt = "image"
+            imageContainer.appendChild(img)
+
+        }
+        const handlePrevImage = () => {
+
+            currentIndex = currentIndex - 1;
+            if (currentIndex < 0) {
+                currentIndex = images.length - 1;
+            }
+
+            const currentImage = document.getElementById("currentImage")
+            currentImage.remove()
+
+            const img = document.createElement("img")
+            img.id = "currentImage"
+            img.src = images[currentIndex]
+            img.alt = "image"
+            imageContainer.appendChild(img)
+        }
+
+        next.addEventListener("click", handleNextImage)
+        prev.addEventListener("click", handlePrevImage)
+
+
+    </script>
+</body>
+
+</html>

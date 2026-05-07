@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal-1</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        dialog{
+            margin: auto;
+            padding: 2rem;
+            border: none;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    
+    <button id="open-modal">Oepn Modal</button>
+    <dialog id="dialog">
+        <h2>Lorem, ipsum.</h2>
+        <button id="close-modal">Close</button>
+    </dialog>
+    <script>
+        const openBtn = document.querySelector("#open-modal")
+        const dialog = document.querySelector("#dialog")
+        const closeBtn = document.querySelector("#close-modal")
+
+        openBtn.addEventListener("click",
+            function(){
+                dialog.showModal();
+            }
+        )
+        closeBtn.addEventListener("click", ()=> dialog.close())
+    </script>
+</body>
+</html>

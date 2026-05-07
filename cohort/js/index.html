@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+</head>
+
+<body>
+
+    <input name="first" type="number" id="first" placeholder="enter first number">
+    <input name="second" type="number" id="second" placeholder="enter second number">
+    <button onclick="handleSwap()">swap</button>
+
+    <div id="root"></div>
+    <script>
+        function handleSwap() {
+            const first = document.querySelector("#first")
+            const second = document.querySelector("#second")
+
+            const temp = first.value;
+            first.value = second.value;
+            second.value = temp;
+        }
+    </script>
+    <!-- <script src="./main.js"></script> -->
+</body>
+
+</html>

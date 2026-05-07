@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polyfills in JS</title>
+</head>
+<body>
+    <div>It's working</div>
+    <script>
+
+        const arr = [1,2,3,4,5,6,7]
+        console.log(arr)
+        if(!Array.prototype.abhi){
+            Array.prototype.abhi = function(){
+                console.log("Hello, I am Abhi😘")
+            }
+        }
+        // arr.abhi()
+        // const result = arr.map(e=>e*2)
+        // console.log(result)
+        // console.log(arr)
+        // console.log(Array.prototype)
+        if(!Array.prototype.myMap){
+            Array.prototype.myMap = function(fn){
+                let result = []
+                
+            }
+        }
+        
+
+        // creating a polyfils 
+        let nums = [1,2,3,4,5]
+        
+        console.log(nums)
+        // we are creating a has() method which take an element as an input and returns true/false if it exists in the array.
+
+        if(!Array.prototype.has){
+            Array.prototype.has = function(element){
+                return this.indexOf(element) !== -1
+            }
+        }
+        console.log(nums.has(3)) // true
+
+    </script>
+</body>
+</html>
+
+
+<!-- A polyfill is a piece of code that provides modern functionality on older browsers that do not natively support it. It essentially "fills in the gaps" by implementing features that are not available in a particular environment. Polyfills are commonly used in web development to ensure that web applications work correctly across different browsers, including older versions. They can also be used in server-side runtimes to provide access to newer JavaScript features.
+
+https://developer.mozilla.org/en-US/docs/Glossary/Polyfill
+
+-->

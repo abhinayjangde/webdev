@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chapter 2 CSS Flexbox</title>
+    <style>
+        body {
+            font-family: Okra, Helvetica, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            background: #fffbf7;
+            padding: 25px 0;
+        }
+
+        .container img {
+            width: 400px;
+            object-fit: cover;
+        }
+
+        .content h2 {
+            font-size: 3rem;
+            font-weight: 400;
+            line-height: 1.6rem;
+        }
+
+        .content p {
+            color: rgb(61 61 61);
+        }
+
+        .content #email,
+        #phone {
+            cursor: pointer;
+        }
+
+        .contact-section {
+            margin: 20px 0;
+        }
+        
+        .contact-section input {
+            font-size: 20px;
+            padding: 10px 20px;
+            color: #757575;
+            border: 1px solid #acacac;
+            border-radius: 5px;
+        }
+        .contact-section button {
+            font-size: 20px;
+            padding: 10px 20px;
+            border: 1px solid #ef4f5f;
+            background: #ef4f5f;
+            color: #ffffff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .contact-section button:hover {
+            background: #df3b4b;
+        }
+        .download-section p{
+            color: #757575;
+        }
+        .download-image img{
+            width: 140px;
+            cursor: pointer;
+        }
+        img[alt="playstore"]{
+            margin-right: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <img src="https://b.zmtcdn.com/data/o2_assets/ce5bc038a8a2d4f8f24465c8826182af1726501431.png" alt="phone">
+
+        <div class="content">
+            <h2>Get the Zomato App</h2>
+            <p>We will send you a link, opent it on your phone to download the app</p>
+            <form>
+
+                <input type="radio" id="email" name="medium" value="Email">
+                <label for="email">Email</label>
+                <input type="radio" id="phone" name="medium" value="Phone">
+                <label for="phone">Phone</label>
+                <div class="contact-section">
+                    <input type="email" autocomplete="off" placeholder="email" id="input-email">
+                    <button type="submit">Share App Link</button>
+                </div>
+            </form>
+            <div class="download-section">
+                <p>Download app from</p>
+                <div class="download-image">
+                    <img src="https://b.zmtcdn.com/data/webuikit/23e930757c3df49840c482a8638bf5c31556001144.png"
+                        alt="playstore">
+                    <img src="https://b.zmtcdn.com/data/webuikit/9f0c85a5e33adb783fa0aef667075f9e1556003622.png"
+                        alt="appstore">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

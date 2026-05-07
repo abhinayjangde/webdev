@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Data</title>
+</head>
+<body>
+    <div id="foodHeader">
+        <h1>List of foods</h1> 
+        <span style="font-weight: bold; text-decoration: underline;" >Total No:</span>
+    </div>
+    <ul id="foodList"></ul>
+
+
+    <div>
+        <input value="" id="input-text" type="text">
+        <button id="copyHandle" onclick="handleCopy()">copy</button>
+    </div>
+
+    <script>
+        async function fetchFood() {
+            let respose = await fetch("https://api.freeapi.app/api/v1/public/meals")
+            let data = await respose.json()
+    
+            const foodData = data.data.data
+            let foodList = document.getElementById("foodList")
+
+            foodData.map(({strMeal})=>{
+                
+                const li = document.createElement("li")
+                li.innerHTML = strMeal
+                foodList.appendChild(li)
+            })
+
+            const totalFood = foodData.length;
+            const sp = document.createElement("span")
+            sp.style.fontWeight = "bold"
+            sp.style.textDecoration = "underline"
+            sp.innerHTML = totalFood
+            document.querySelector("#foodHeader").appendChild(sp)
+            
+        }
+        // fetchFood()
+
+        const inputText = document.querySelector("#input-text")
+        const handleCopy = ()=>{
+            if(inputText.value.trim() === "") return
+
+            window.navigator.clipboard.writeText(inputText.value)
+            inputText.select()
+            const copyHandle = document.querySelector("#copyHandle")
+            copyHandle.innerHTML = "copied"
+            copyHandle.style.color = "green"
+            setTimeout(()=>{
+                copyHandle.innerHTML = "copy"
+                 copyHandle.style.color = "black"
+            }, 1000)
+            console.log("run")
+        }
+    </script>
+</body>
+</html>

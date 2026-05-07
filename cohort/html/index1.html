@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>terminal</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .terminal-container{
+            width: 1200px;
+            height: 500px;
+            border: 1px solid;
+
+        }
+        .terminal-command textarea{
+            width: 100%;
+            height: 100%;
+        }
+        textarea{
+            outline: none;
+        }
+        .green::before{
+            content: "🟢";
+        }
+        .red::before{
+            content: "🔴";
+        }
+        .yellow::before{
+            content: "🟡";
+        }
+      
+    </style>
+</head>
+<body>
+    <div class="terminal-container">
+        <div class="terminal-header">
+            <span class="dot green" ></span>
+            <span class="dot yellow" ></span>
+            <span class="dot red" ></span>
+            <span>codebhaiya terminal</span>
+        </div>
+        <div class="terminal-command">
+            <textarea name="command" id="command"></textarea>
+        </div>
+    </div>
+</body>
+</html>

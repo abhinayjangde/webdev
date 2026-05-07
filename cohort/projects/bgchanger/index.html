@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BG Changer</title>
+</head>
+
+<body>
+    <div>
+        <label for="bg-color">Choose color: </label>
+        <select size="1" name="bg-color" id="bg-color">
+            <option value="red">Red</option>
+            <option value="green">Green</option>
+            <option value="blue">Blue</option>
+            <option value="orange">Orange</option>
+        </select>
+        <button id="createButton">create</button>
+    </div>
+    <div class="container">
+
+    </div>
+
+    <script>
+        const dropDown = document.querySelector("#bg-color")
+        const createButton = document.querySelector("#createButton")
+        const conatiner = document.querySelector(".container")
+
+        function createButtonWithColor(){
+            const btn = document.createElement("button")
+            return function () {
+                btn.textContent = dropDown.value
+                conatiner.append(btn)
+            }
+        }
+        const btnCreate = createButtonWithColor()
+        createButton.addEventListener("click", btnCreate )
+    </script>
+</body>
+
+</html>

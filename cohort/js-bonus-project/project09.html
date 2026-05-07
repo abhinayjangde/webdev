@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BG Color Changer</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+       
+    </style>
+</head>
+<body>  
+    <h2>Background Color Changer</h2>
+    <select name="" id="selectColor">
+      
+    </select>
+
+    <script>
+        const selectColor = document.getElementById("selectColor")
+      
+        const colors = ['red', 'green', 'blue','white', 'black']
+
+
+        selectColor.addEventListener("change", (e)=>{
+            console.log(e.target.value)
+            document.body.style.backgroundColor = e.target.value
+        })
+
+        colors.map((color)=>{
+            const option = document.createElement("option")
+            option.value = color
+            option.textContent = color
+            selectColor.appendChild(option)
+        })
+        
+    </script>
+</body>
+</html>

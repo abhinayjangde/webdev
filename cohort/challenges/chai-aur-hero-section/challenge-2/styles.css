@@ -1,0 +1,177 @@
+:root {
+  --primary-blue: #3b82f6;
+  --primary-blue-dark: #2563eb;
+  --gray-800: #1f2937;
+  --neutral-400: #9ca3af;
+  --neutral-900: #111827;
+
+  /* Dark mode variables */
+  --bg-dark: #111827;
+  --text-dark: #ffffff;
+  --border-dark: #374151;
+}
+
+body {
+ font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.hero {
+  margin: 25px 150px;
+  padding: 70px 90px;
+}
+
+.hero-grid {
+  display: flex;
+}
+
+.content-col h1 {
+  font-size: 5rem;;
+}
+
+.content-col p {
+  font-size: 20px;
+  letter-spacing: -1px;
+}
+
+.cta-group {
+  display: flex;
+  gap: 4px;
+  margin: 40px 0px;
+}
+
+.sr-only {
+}
+
+.input-wrapper {
+}
+
+input[type='text'] {
+  padding: 8px 12px;
+  font-size: 17px;
+  border: 1px solid #d4d4d4;
+}
+
+.demo-button {
+  padding: 8px 12px;
+  font-size: 17px;
+  color: white;
+  background: var(--primary-blue);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.demo-button:hover {
+}
+
+.brands-section {
+}
+
+.trusted-by {
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 100px 0;
+}
+
+.brand-logos {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  gap: 40px;
+}
+
+.brand-logo {
+  width: 100px;
+}
+
+.image-col {
+}
+
+.hero-image {
+  width: 680px;
+  border-radius: 6px;
+}
+
+@media (min-width: 640px) {
+  .hero {
+  }
+
+  .content-col h1 {
+  }
+
+  .cta-group {
+  }
+
+  .demo-button {
+  }
+
+  .input-wrapper {
+  }
+
+  input[type='text'] {
+  }
+}
+
+@media (min-width: 768px) {
+  .content-col h1 {
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+  }
+
+  .hero-grid {
+  }
+
+  .content-col h1 {
+  }
+
+  .cta-group {
+  }
+
+  .brands-section {
+  }
+
+  .image-col {
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero-grid {
+    gap: 3rem;
+  }
+}
+
+.dark-mode-toggle {
+  padding: 8px 12px;
+  font-size: 17px;
+  color: white;
+  background: var(--primary-blue);
+  border: none;
+  border-radius: 5px;
+  float: right;
+  margin-right: 240px;
+  cursor: pointer;
+}
+
+.dark-mode-toggle:hover {
+}
+
+body.dark {
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+.dark-mode-toggle {
+}
+
+.dark-mode-toggle:hover {
+}
+
+input[type='text'].dark {
+}
+
+input[type='text']::placeholder {
+}
