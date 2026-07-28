@@ -24,35 +24,56 @@
         const imagePreview = document.getElementById("imagePreview")
         const postBtn = document.getElementById("postBtn")
 
-        let publicURL;
+        let publicURL = "";
 
         file.addEventListener("change", async (e) => {
             const imageFile = e.target.files[0];
-            const res = await fetch(
-                `http://localhost:4000/api/presigned-url?imageName=${imageFile.name}&imageType=${imageFile.type}`
-            )
 
-            const data = await res.json()
+            if (!imageFile) {
+                publicURL = "";
+                return;
+            }
 
+            try {
+                const res = await fetch(
+                    `http://localhost:4000/api/presigned-url?imageName=${imageFile.name}&imageType=${imageFile.type}`
+                )
 
-            // upload image
-            const resupload = await fetch(data.presignedURL, {
-                method: "PUT",
-                headers: {
-                    "Content-Type": imageFile.type
-                },
-                body: imageFile
-            })
+                if (!res.ok) {
+                    throw new Error("Could not get presigned URL")
+                }
 
+                const data = await res.json()
 
-            publicURL = data.presignedURL.split("?")[0]
+                const resupload = await fetch(data.presignedURL, {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": imageFile.type
+                    },
+                    body: imageFile
+                })
 
-            imagePreview.src = publicURL;
+                if (!resupload.ok) {
+                    throw new Error("Image upload failed")
+                }
 
-
+                publicURL = data.presignedURL.split("?")[0]
+                imagePreview.src = publicURL;
+                console.log("Image ready for post:", publicURL);
+            } catch (error) {
+                console.error("Image upload failed:", error);
+                publicURL = "";
+            }
         })
+
         postBtn.addEventListener("click", async () => {
             const contentText = content.value;
+
+            if (!publicURL) {
+                alert("Please upload an image first")
+                return;
+            }
+
             await fetch("http://localhost:4000/api/create-post", {
                 method: "POST",
                 headers: {
